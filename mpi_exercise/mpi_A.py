@@ -20,7 +20,7 @@ def auc(x_values=x_values, y_values=y_values, subintervals=subintervals):
     
     return (width / 2) * total 
 
-auc()
+print("Area under curve is {}".format(auc()))
 
 
 
