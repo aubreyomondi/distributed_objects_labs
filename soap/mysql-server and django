@@ -1,0 +1,103 @@
+https://dev.mysql.com/doc/mysql-apt-repo-quick-guide/en/
+https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-18-04
+https://linuxize.com/post/how-to-install-mysql-on-ubuntu-18-04/
+
+sudo apt-get install mysql-server
+
+sudo service mysql status
+
+sudo mysql_secure_installation
+Would you like to setup VALIDATE PASSWORD component? enter to continue 
+Remove anonymous users? (Press y|Y for Yes, any other key for No) : y
+Disallow root login remotely? (Press y|Y for Yes, any other key for No) : y
+Remove test database and access to it? (Press y|Y for Yes, any other key for No) : y
+Reload privilege tables now? (Press y|Y for Yes, any other key for No) : y
+
+sudo mysql
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'very_strong_password';
+FLUSH PRIVILEGES;
+SELECT user,authentication_string,plugin,host FROM mysql.user;
+CREATE USER 'aubrey'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON *.* TO 'aubrey'@'localhost' WITH GRANT OPTION;
+
+sudo service mysql status, sudo service mysql start, sudo service mysql stop
+
+sudo mysqladmin -p -u root version
+This command says to connect to MySQL as root (-u root), prompt for a password (-p), and return the version.
+
+mysql -u aubrey -p  then enter aubrey's password
+mysql -u root -p    then enter root's password
+
+When using Django: Need DB API Driver and Adapter to access the database drivers from its ORM.
+- DB API driver (MySQLdb, mysqlclient, MySQL Connector/Python). 
+- Django provides an adapter for MySQLdb/mysqlclient while MySQL Connector/Python includes its own.
+
+Before installing mysqlclient:
+sudo apt-get install libmysqlclient-dev or sudo apt install default-libmysqlclient-dev (For recent versions of debian/ubuntu (as of 2018))
+For Python 2.x use:
+$ sudo apt-get install python-dev
+For Python 2.7 use:
+$ sudo apt-get install libffi-dev
+For Python 3.x use:
+$ sudo apt-get install python3-dev
+or for a specific version of Python 3, replace x with the minor version in
+$ sudo apt-get install python3.x-dev
+
+Install mysqlclient:
+https://pypi.org/project/mysqlclient/
+pip install mysqlclient
+
+Set up db details in Django1.8 settings.py:
+https://docs.djangoproject.com/en/1.8/intro/tutorial01/
+https://docs.djangoproject.com/en/1.8/ref/databases/#third-party-notes
+https://docs.djangoproject.com/en/1.8/ref/settings/#std:setting-DATABASES
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'students',
+        'USER': 'aubrey',
+        'PASSWORD': 'password',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
+    }
+}
+TIME_ZONE = 'Africa/Nairobi'
+
+
+
+CREATE DATABASE database_name;
+
+show databases;
+
+In django project, run python manage.py migrate
+
+mysql -u aubrey -p (when prompted enter password)
+show databases;
+use students;
+show tables;
+
+Create app within django project:
+python manage.py startapp soap_students_app
+
+create a model in models.py soap_students_app:
+class Student(models.Model):
+    admission = models.PositiveIntegerField()
+    full_name = models.CharField(max_length=200)
+    email = models.CharField(max_length=200)
+    phone_number = models.PositiveIntegerField()
+    address = models.CharField(max_length=200)
+    entry_points = models.PositiveIntegerField()
+    reg_date = models.DateTimeField('registration date')
+
+
+Add the below in installed apps section of settings.py:
+'soap_students_app',
+
+python manage.py makemigrations soap_students_app # to create migrations for changes
+python manage.py sqlmigrate soap_students_app 0001
+python manage.py check
+python manage.py migrate # to apply those changes to the database.
+
+
+
+
