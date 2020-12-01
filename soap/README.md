@@ -30,7 +30,7 @@ pip install Suds==0.4
 pip install lxml
 
 Interface for storing student's details into a mysql database:
-![register_students_ui](register_students_ui.png)
+![register_students_ui](https://github.com/aubreyomondi/distributed_objects_labs/blob/main/soap/images/register_students_ui.png)
 
 
 
