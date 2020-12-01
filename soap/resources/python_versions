@@ -1,0 +1,40 @@
+https://hackersandslackers.com/multiple-versions-python-ubuntu/
+
+Installing Python fresh on a Ubuntu machine requires us to install a whole bunch of prerequisite libraries that Python depends on. 
+If you're going to install Python from the source, you need to install some development libraries to compile Python source code:
+- sudo apt-get install build-essential checkinstall
+- sudo apt-get install libreadline-gplv2-dev libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev libffi-dev zlib1g-dev
+
+Download the version of python you want:
+cd /opt
+sudo wget https://www.python.org/ftp/python/3.5.0/Python-3.5.0.tgz 
+sudo tar xzf Python-3.5.0.tgz
+
+Install from source:
+cd Python-3.5.0
+sudo ./configure --enable-optimizations
+sudo make altinstall
+
+Validate Python version:
+python3 --version or python3.5 --version
+Python 3.5.0
+
+Managing Alternative Python Installations: # replace with your own versions
+update-alternatives --install /usr/bin/python python /usr/bin/python3.7 or /usr/local/bin/python3.7 1 
+update-alternatives --install /usr/bin/python python /usr/bin/python3.5 or /usr/local/bin/python3.5 2
+update-alternatives --list python
+update-alternatives --config python
+
+Install pip3:
+apt install python3-pip or python3.7 get-pip.py (after curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py)
+python3.7 -m pip install --upgrade pip
+https://pip.pypa.io/en/stable/installing/
+https://packaging.python.org/tutorials/installing-packages/
+
+Remove python version:
+update-alternatives --remove python /usr/bin/python3.7
+
+Remove downloaded python:
+sudo rm -f Python-3.7.0.tgz
+
+

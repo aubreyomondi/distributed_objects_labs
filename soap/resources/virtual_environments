@@ -1,0 +1,15 @@
+
+Anaconda:
+conda config --set auto_activate_base false
+source deactivate / conda deactivate - move from anaconda environment
+deactivate - move from a virtual environment
+
+virtualenv - python2
+pip install virtualenv
+python -m virtualenv ~/.virtualenvs/soap
+venv - python3
+
+python -m venv tutorial_env or python3 -m venv tutorial_env
+
+
+

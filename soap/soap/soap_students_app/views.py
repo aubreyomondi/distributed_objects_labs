@@ -6,17 +6,19 @@ from spyne.model.primitive import Unicode, Integer
 from spyne.protocol.soap import Soap11
 from spyne.server.django import DjangoApplication
 from spyne.service import ServiceBase
+from .models import Student
 
 
 class SoapService(ServiceBase):
-    @rpc(Unicode(nillable=False), _returns=Unicode)
-    def hello(ctx, name):
-        return 'Hello, {}'.format(name)
-
-    @rpc(Integer(nillable=False), Integer(nillable=False), _returns=Integer)
-    def sum(ctx, a, b):
-        return int(a + b)
-
+    @rpc(Integer(nillable=False), _returns=Unicode)
+    def student_details(ctx, admission_no):
+        return_value = "Student doesn't exist."
+        try:
+            student_info = Student.objects.get(admission=admission_no)
+            return_value = 'Name: {}\nEmail: {}\nPhone Number: {}\nAddress: {}\nEntry points: {}\nRegistration Date: {}'.format(student_info.full_name, student_info.email, student_info.phone_number, student_info.address, student_info.entry_points, student_info.reg_date)
+        except: 
+            print("Doesn't work!")
+        return return_value
 
 soap_app = Application(
     [SoapService],
