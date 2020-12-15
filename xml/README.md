@@ -10,3 +10,5 @@ Prerequisites:
 Run:
 
 *node app.js*
+
+This task's video is available.

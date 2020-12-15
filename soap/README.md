@@ -34,6 +34,8 @@ Project was done in a virtual environment using python 2.7, the following should
 Interface for storing student's details into a mysql database:
 ![register_students_ui](https://github.com/aubreyomondi/distributed_objects_labs/blob/main/soap/images/register_students_ui.png)
 
+This task's video is available.
+
 
 
 

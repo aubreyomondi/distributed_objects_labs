@@ -8,3 +8,5 @@ Prerequisites:
 **rest** - django project with an app called rest_app
 
 **rest** - contains random resources consulted inorder to implement this project. This is in addition to the resources mentioned in the soap assignment/folder.
+
+This task's video is available.
