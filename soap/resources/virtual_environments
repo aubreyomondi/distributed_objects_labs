@@ -16,5 +16,8 @@ python -m venv ~/.virtualenvs/soap  # in case python 3 is the default python ver
 or
 python3 -m venv ~/.virtualenvs/soap
 
+Activate the virtual environment:
+source ~/.virtualenvs/soap/bin/activate
+
 
 
