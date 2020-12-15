@@ -9,4 +9,4 @@ Prerequisites:
 
 **rest** - contains random resources consulted inorder to implement this project. This is in addition to the resources mentioned in the soap assignment/folder.
 
-This task's video is available.
+This task's video is available, https://drive.google.com/drive/folders/123PvCA_c40xpeBhUyDAG2GqrXeNpNOEy?usp=sharing
