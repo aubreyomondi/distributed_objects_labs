@@ -6,10 +6,15 @@ deactivate - move from a virtual environment
 
 virtualenv - python2
 pip install virtualenv
-python -m virtualenv ~/.virtualenvs/soap
-venv - python3
+python -m virtualenv ~/.virtualenvs/soap # in case python 2 is the default python version in your system
+(specifies that we're creating a virtual environment - soap - in .virtualenvs folder which is in the home directory)  
+or
+python2 -m virtualenv ~/.virtualenvs/soap
 
-python -m venv tutorial_env or python3 -m venv tutorial_env
+venv - python3
+python -m venv ~/.virtualenvs/soap  # in case python 3 is the default python version in your system
+or
+python3 -m venv ~/.virtualenvs/soap
 
 
 
