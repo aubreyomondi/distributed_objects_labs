@@ -17,9 +17,9 @@ function deserialize(string){
 }
 
 app.get('/', (req, res) => {
-    db.put({_id: '101907' , name: 'Aubrey Omondi', course: 'ICS'}, function callback(err, result) {
+    db.put({_id: '101907' , name: 'Aubrey Omondi', group: 'ICS 4B'}, function callback(err, result) {
         if (!err) {
-            console.log('Inserted into DB');
+            console.log('Successfully saved into students DB');
         }
     });
   
@@ -28,8 +28,7 @@ app.get('/', (req, res) => {
         res.send(xml(doc));
       }).catch(function (err) {
         console.log(err);
-      });
-    
+      });  
 })
 
 app.listen(port, () => {
