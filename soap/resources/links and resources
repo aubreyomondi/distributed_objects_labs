@@ -1,11 +1,13 @@
-python_versions.txt
+python_versions.txt  
 virtual_environments.txt
 mysql-server and django.txt
 
+python 2.7 virtual environment 
+
 https://ducminhgd.wordpress.com/2017/09/17/create-soap-web-service-with-django/
-pip install Django==1.8
-pip installSpyne==2.10
-pip install Suds==0.4
+pip install Django==1.8 # python web dev framework
+pip install Spyne==2.10  # python library for rpc apis, also protocols and transports used to expose your service
+pip install Suds==0.4 # soap python client
 pip install lxml
 
 check contents of urls.py in django project, views.py in soap_students_app in django project and soap_students_client.py
@@ -16,3 +18,7 @@ python manage.py runserver
 python soap_students_client.py
 
 https://webpy.org/cookbook/webservice
+
+http://127.0.0.1:8000/soap_service/?WSDL
+
+
